@@ -1,135 +1,93 @@
-# Wikefiy - WiFi Password Tools
+# Wikefiy
 
-Набір інструментів для роботи з WiFi паролями на Windows.
+![Repo Visibility](https://img.shields.io/badge/visibility-Public-blue)
+![Repository Type](https://img.shields.io/badge/type-Source-lightgrey)
+![Last Commit](https://img.shields.io/github/last-commit/kiurakku/Wikefiy)
+![Issues](https://img.shields.io/github/issues/kiurakku/Wikefiy)
+![License](https://img.shields.io/github/license/kiurakku/Wikefiy)
 
-## 🚀 Швидкий старт
+Windows WiFi profile tooling and automation scripts for network credential workflows.
 
-### Найшвидший спосіб отримати пароль
+## Project Overview
 
-```bash
-python wifi-fast.py "TP-Link_284_5G"
-```
+$(@{defaultBranchRef=; description=Windows WiFi profile tooling and automation scripts for network credential workflows.; isFork=False; isPrivate=False; licenseInfo=; name=Wikefiy; primaryLanguage=; repositoryTopics=System.Object[]; visibility=PUBLIC}.name) is maintained as a **Python** project focused on reliable engineering practices, readable architecture, and practical delivery.
 
-Це перевірить збережені паролі в Windows і створить файл `TP-Link_284_5G.txt` з паролем.
+## Tags
 
-## 📦 Встановлення
+engineering, software, automation
 
-### Вимоги
+## Why This Project
 
-- Python 3.7+
-- Windows (для більшості скриптів)
-- Права адміністратора (рекомендовано)
+- Demonstrates production-minded implementation and maintainability.
+- Captures reusable patterns that can be applied across other systems.
+- Serves as a practical reference for development, operations, and quality workflows.
 
-### Встановлення залежностей
+## Key Capabilities
 
-```bash
-pip install -r requirements.txt
-```
+- Clear repository structure for iterative development.
+- Standardized development lifecycle: setup, build, test, and deployment flow.
+- Continuous integration compatibility through GitHub Actions.
+- Documentation-first approach for onboarding and contribution speed.
 
-## 🛠️ Скрипти
+## Tech Context
 
-### 1. `wifi-fast.py` - Найшвидший спосіб
+- **Primary language:** Python
+- **Visibility:** Public
+- **Repository role:** Source
+- **Default branch:** master
+- **License:** MIT License
 
-Простий скрипт для отримання збереженого пароля:
+## Quick Start
 
-```bash
-python wifi-fast.py "SSID"
-```
+`ash
+git clone https://github.com/kiurakku/Wikefiy.git
+cd Wikefiy
+# Install dependencies (project-specific)
+# Build or run tests
+# Start the project
+`
 
-**Що робить:**
-- Перевіряє збережені WiFi профілі в Windows
-- Створює файл `SSID.txt` з паролем
-- Працює миттєво для мереж, до яких ви вже підключалися
+## Configuration
 
-### 2. `wifi-brute-python.py` - Підбір паролів
+- Use environment variables for secrets and environment-specific values.
+- Keep local configuration in non-committed files (for example: .env.local).
+- Prefer explicit defaults and fail-fast validation for required settings.
 
-Скрипт для підбору паролів через pywifi:
+## Testing
 
-```bash
-python wifi-brute-python.py -ssid "SSID" -dict "password-dictionary.txt"
-```
+- Run unit/integration checks before each push.
+- Keep tests deterministic and scoped to behavior.
+- Add regression tests for every fixed defect.
 
-**Параметри:**
-- `-ssid, --ssid` - Назва WiFi мережі (обов'язково)
-- `-dict, --dictionary` - Шлях до словника (за замовчуванням: password-dictionary.txt)
-- `-d, --delay` - Затримка між спробами в секундах (за замовчуванням: 1.0)
-- `-i, --interface` - Індекс WiFi адаптера (за замовчуванням: 0)
+## CI/CD
 
-### 3. PowerShell скрипти
+This repository is designed to work with GitHub Actions pipelines for:
 
-#### `wifi-connect.ps1` - Підбір зі словника
+- Build validation
+- Test execution
+- Baseline repository health checks
 
-```powershell
-.\wifi-connect.ps1 -SSID "TP-Link_284_5G"
-```
+## Roadmap
 
-#### `wifi-brute.ps1` - Розумна генерація паролів
+- Strengthen automated quality gates and security checks.
+- Expand coverage of integration and end-to-end scenarios.
+- Improve observability, performance benchmarks, and release discipline.
 
-```powershell
-.\wifi-brute.ps1 -SSID "TP-Link_284_5G"
-```
+## Contribution Guidelines
 
-#### `wifi-show-passwords.ps1` - Всі збережені паролі
+- Open an issue describing the change or bug.
+- Submit focused pull requests with clear scope.
+- Include test evidence for behavioral changes.
 
-```powershell
-.\wifi-show-passwords.ps1
-```
+## Security Notes
 
-#### `wifi-get-password.ps1` - Пароль конкретної мережі
+- Do not commit credentials, tokens, or private keys.
+- Report sensitive findings privately via maintainer contact channels.
 
-```powershell
-.\wifi-get-password.ps1 -SSID "TP-Link_284_5G"
-```
+## License
 
-## 📝 Структура проєкту
+This project is distributed under **MIT License**.
 
-```
-Wikefiy/
-├── README.md                    # Цей файл
-├── requirements.txt              # Python залежності
-├── password-dictionary.txt      # Словник паролів
-├── wifi-fast.py                 # Найшвидший спосіб (Python)
-├── wifi-brute-python.py         # Підбір паролів (Python)
-├── wifi-connect.ps1              # Підбір зі словника (PowerShell)
-├── wifi-brute.ps1               # Розумна генерація (PowerShell)
-├── wifi-show-passwords.ps1      # Всі паролі (PowerShell)
-└── wifi-get-password.ps1       # Один пароль (PowerShell)
-```
+## Maintainer
 
-## ⚠️ Важливо
-
-**Використовуйте тільки для легальних цілей:**
-- Тестування власних мереж
-- Відновлення забутих паролів
-- Дозволені пентести
-
-**Не використовуйте для:**
-- Доступу до чужих мереж без дозволу
-- Незаконних дій
-
-## 🔧 Відомі проблеми
-
-1. **"No module named 'comtypes'"** - Встановіть: `pip install comtypes`
-2. **"No WiFi adapter found"** - Перевірте, чи WiFi адаптер активний
-3. **"Permission denied"** - Запустіть від імені адміністратора
-4. **Підключення не працює** - Деякі адаптери потребують Compatibility Mode
-
-## 📄 Ліцензія
-
-MIT License - використовуйте вільно для особистих та комерційних цілей.
-
-## ✅ Тестування
-
-Локально або в CI:
-
-```bash
-python -m unittest discover -s tests -p "test_*.py"
-```
-
-## 🤝 Внесок
-
-Вітаються pull requests та issues!
-
-## 📧 Контакти
-
-Створено для навчальних цілей.
+Maintained by **Kiurakku** as part of a portfolio of software engineering, security engineering, and platform projects.
