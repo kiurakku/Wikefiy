@@ -118,6 +118,14 @@ Wikefiy/
 
 MIT License - використовуйте вільно для особистих та комерційних цілей.
 
+## ✅ Тестування
+
+Локально або в CI:
+
+```bash
+python -m unittest discover -s tests -p "test_*.py"
+```
+
 ## 🤝 Внесок
 
 Вітаються pull requests та issues!
